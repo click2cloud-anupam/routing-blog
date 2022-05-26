@@ -13,7 +13,11 @@ export class AppComponent {
   //   this.users = userdata.users();
   // }
   constructor(private apiDataService: ApiDataService) {
-    apiDataService.users().subscribe((data) => (this.users = data));
-    console.warn(this.users);
+    apiDataService.users().subscribe((data) => {
+      console.warn('data', data);
+      this.users = data;
+    });
+    // console.warn(this.users);
+    // this.users = data;
   }
 }
