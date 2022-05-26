@@ -1,12 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css'],
+  selector: 'app-footer',
+  templateUrl: './footer.component.html',
+  styleUrls: ['./footer.component.css']
 })
-export class AppComponent {
-  title = 'Services in Angular';
+export class FooterComponent implements OnInit {
   memberData = [
     {
       name: 'Anupam',
@@ -29,4 +28,9 @@ export class AppComponent {
       email: 'peter@gmail.com',
     },
   ];
+  constructor() { }
+
+  ngOnInit(): void {
+  }
+
 }
