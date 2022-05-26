@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-
+import {UserdataService} from './services/userdata.service';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -7,26 +7,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Services in Angular';
-  memberData = [
-    {
-      name: 'Anupam',
-      email: 'anupam@gmail.com',
-    },
-    {
-      name: 'Shubham',
-      email: 'shubham@gmail.com',
-    },
-    {
-      name: 'Tom',
-      email: 'tom@gmail.com',
-    },
-    {
-      name: 'Anup',
-      email: 'anup@gmail.com',
-    },
-    {
-      name: 'Peter',
-      email: 'peter@gmail.com',
-    },
-  ];
+  users:any;
+  constructor(private userdata: UserdataService){
+    console.warn("userdata", userdata.users());
+    this.users = userdata.users();
+  }
 }
