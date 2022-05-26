@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import {UserdataService} from './services/userdata.service';
+import { ApiDataService } from './services/api-data.service';
+import { UserdataService } from './services/userdata.service';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -7,9 +8,12 @@ import {UserdataService} from './services/userdata.service';
 })
 export class AppComponent {
   title = 'Services in Angular';
-  users:any;
-  constructor(private userdata: UserdataService){
-    console.warn("userdata", userdata.users());
-    this.users = userdata.users();
+  users: any;
+  // constructor(private userdata: UserdataService){
+  //   this.users = userdata.users();
+  // }
+  constructor(private apiDataService: ApiDataService) {
+    apiDataService.users().subscribe((data) => (this.users = data));
+    console.warn(this.users);
   }
 }
